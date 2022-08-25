@@ -3,7 +3,7 @@
 import requests
 
 # Method to build url that will be used to make the API request
-def build_pmc_query_url(query_string, result_type="core", page_size=50, return_format="json"):
+def build_pmc_query_url(query_string, result_type="core", page_size=100, return_format="json"):
     pmc_api_base = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?"
     query_url = pmc_api_base + "query={}".format(query_string)
     query_url += "&resultType={}".format(result_type)
@@ -27,12 +27,13 @@ def fit_title(title):
     return title
 
 
-#main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND CREATION_DATE:[2022-04-01 TO 2022-04-10]'
+#main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND CREATION_DATE:[2022-06-01 TO 2022-06-10] AND HAS_DATA:Y'
 main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND PUB_YEAR:2022'
 article_web_base = 'https://europepmc.org/article'
 words_of_interest = {'Figshare' : 'figshare', 'Zenodo' : 'zenodo', 'Github' : 'github', 'Dryad': 'dryad',
-                     'Gene Expression Omnibus' : 'gse', 'Protein Data Bank' : 'PDB', 'Proteome Xchange' : 'PXD',
+                     'Gene Expression Omnibus' : 'gse', 'Protein Data Bank' : 'PDB', 'Proteome Xchange' : '(PXD OR ProteomeXchange)',
                      'SASBDB' : 'SASD', 'Electron Microscopy DB' : '(EMD AND NOT serono)', 'ENA' : '(PRJE OR PRJD OR PRJN)'}
+
 pub_collection = {}
 pub_summary = {'total': 0, 'data_y': 0, 'data_n': 0, 'db_total': 0}
 
@@ -44,6 +45,7 @@ for pub in pmc_get_publications(qurl):
     pub_collection[pub[0]] = ((article_web_base + '/' + pub[1] + '/' + pub[0]), pub[2], pub[3], [])
     pub_summary['total'] += 1
     pub_summary['data_' + pub[3].lower()] += 1
+print("Done collecting all Publications")
 
 # query again with words of interest and populate it in publications info
 for db, search_word in words_of_interest.items():
@@ -51,9 +53,10 @@ for db, search_word in words_of_interest.items():
     for pub in pmc_get_publications(wqurl):
         if pub[0] not in pub_collection:
             print("Strange!! Article '{}' has word of interest '{}' but not in main search".format((article_web_base + '/' + pub[1] + '/' + pub[0]), db))
-            continue
+            pub_collection[pub[0]] = ((article_web_base + '/' + pub[1] + '/' + pub[0]), pub[2], pub[3], [])
         pub_collection[pub[0]][-1].append(db)
         pub_summary['db_total'] += 1
+    print("Done checking for DB {}".format(db))
 
 # write the output file
 with open("publication_list.html", "w") as outfile:
@@ -122,17 +125,56 @@ with open("publication_list.html", "w") as outfile:
         </ul><br><br>
         <div id='TableContainer'>
         <table class='sortable'>
-        <tr><th>Title</th><th>Has Data</th><th>Mentioned DB of interest</th></tr>
+        <tr><th>Read</th><th>Title</th><th>Has Data</th><th>Mentioned DB of interest</th></tr>
     """.format(pub_summary['total'], pub_summary['data_y'], pub_summary['data_n'], pub_summary['db_total'])
     )
     for pid, pub_info in pub_collection.items():
         outfile.write(
         """
-            <tr>
+            <tr id='{}'>
+                <td><input type='checkbox' id='{}'></td>
                 <td><a href='{}'>{}</a></td>
                 <td>{}</td>
                 <td>{}</td>
             </tr>
-        """.format(pub_info[0], fit_title(pub_info[1]), pub_info[2], ", ".join(pub_info[3]))
+        """.format(pid, pid, pub_info[0], fit_title(pub_info[1]), pub_info[2], ", ".join(pub_info[3]))
         )
-    outfile.write("</table>\n</div>\n</body>\n")    
+    outfile.write(
+    """
+        </table>
+        </div>
+        <script>
+            // Cookies saving and retrieving functions taken from internet
+    
+            function createCookie(name, value, days) {
+                var expires;
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = '; expires=' + date.toGMTString();
+                }
+                else {
+                    expires = '';
+                }
+                document.cookie = name + '=' + value + expires;
+            }
+
+            function getCookie(c_name) {
+                if (document.cookie.length > 0) {
+                    c_start = document.cookie.indexOf(c_name + '=');
+                    if (c_start != -1) {
+                        c_start = c_start + c_name.length + 1;
+                        c_end = document.cookie.indexOf(';', c_start);
+                        if (c_end == -1) {
+                            c_end = document.cookie.length;
+                        }
+                        return unescape(document.cookie.substring(c_start, c_end));
+                    }
+                }
+                return '';
+            }
+        </script>
+        </body>
+        </html>
+    """
+    )    
