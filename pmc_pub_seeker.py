@@ -1,5 +1,6 @@
 """This script uses Eurpoe PMC API to retrieve publications of interest"""
 
+import json
 import requests
 
 # Method to build url that will be used to make the API request
@@ -26,36 +27,40 @@ def fit_title(title):
         title = title[:117] + "..."
     return title
 
+def pprint(dobj):
+    print(json.dumps(dobj, indent=4))
 
-#main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND CREATION_DATE:[2022-06-01 TO 2022-06-10] AND HAS_DATA:Y'
-main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND PUB_YEAR:2022'
+main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND CREATION_DATE:[2022-08-01 TO 2022-08-31]'
+#main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND PUB_YEAR:2022'
 article_web_base = 'https://europepmc.org/article'
-words_of_interest = {'Figshare' : 'figshare', 'Zenodo' : 'zenodo', 'Github' : 'github', 'Dryad': 'dryad',
-                     'Gene Expression Omnibus' : 'gse', 'Protein Data Bank' : 'PDB', 'Proteome Xchange' : '(PXD OR ProteomeXchange)',
-                     'SASBDB' : 'SASD', 'Electron Microscopy DB' : '(EMD AND NOT serono)', 'ENA' : '(PRJE OR PRJD OR PRJN)'}
-
+words_of_interest = {'Figshare' : 'figshare*', 'Zenodo' : 'zenodo*', 'Github' : 'github*', 'Dryad': 'dryad',
+                     'Gene Expression Omnibus' : 'gse*', 'Protein Data Bank' : 'PDB*', 'Proteome Xchange' : '(PXD* OR ProteomeXchange)',
+                     'SASBDB' : 'SASD*', 'Electron Microscopy DB' : '(EMD AND NOT serono)', 'ENA' : '(PRJE* OR PRJD* OR PRJN*)',
+                     'Open Science Framework' : '("Open Science Framework" OR osf*)', 'Experimental Factor Ontology' : 'EFO'}
+#words_of_interest = {'Figshare' : 'figshare', 'Zenodo' : 'zenodo', 'Github' : 'github'}
 pub_collection = {}
 pub_summary = {'total': 0, 'data_y': 0, 'data_n': 0, 'db_total': 0}
 
-# collect publication with primary query
-qurl = build_pmc_query_url(query_string="{}".format(main_query_string))
-for pub in pmc_get_publications(qurl):
-    if pub[0] in pub_collection:
-        continue
-    pub_collection[pub[0]] = ((article_web_base + '/' + pub[1] + '/' + pub[0]), pub[2], pub[3], [])
-    pub_summary['total'] += 1
-    pub_summary['data_' + pub[3].lower()] += 1
-print("Done collecting all Publications")
+# collect publication with primary query, not needed, but kept here for reference/debug etc
+# qurl = build_pmc_query_url(query_string="{} AND HAS_DATA:y".format(main_query_string))
+# for pub in pmc_get_publications(qurl):
+#     if pub[0] in pub_collection:
+#         continue
+#     pub_collection[pub[0]] = ((article_web_base + '/' + pub[1] + '/' + pub[0]), pub[2], pub[3], [])
+#     pub_summary['total'] += 1
+#     pub_summary['data_' + pub[3].lower()] += 1
+# print("Done collecting all Publications")
 
 # query again with words of interest and populate it in publications info
 for db, search_word in words_of_interest.items():
     wqurl = build_pmc_query_url(query_string="{} AND {}".format(main_query_string, search_word))
     for pub in pmc_get_publications(wqurl):
         if pub[0] not in pub_collection:
-            print("Strange!! Article '{}' has word of interest '{}' but not in main search".format((article_web_base + '/' + pub[1] + '/' + pub[0]), db))
+            #print("Strange!! Article '{}' has word of interest '{}' but not in main search".format((article_web_base + '/' + pub[1] + '/' + pub[0]), db))
             pub_collection[pub[0]] = ((article_web_base + '/' + pub[1] + '/' + pub[0]), pub[2], pub[3], [])
+            pub_summary['total'] += 1
+            pub_summary['data_' + pub[3].lower()] += 1
         pub_collection[pub[0]][-1].append(db)
-        pub_summary['db_total'] += 1
     print("Done checking for DB {}".format(db))
 
 # write the output file
@@ -117,16 +122,15 @@ with open("publication_list.html", "w") as outfile:
             </style>
         </head>
         <body>
-        <ul>
+        <ul style="padding-left:160px;">
             <li>Total publications: {}</li>
             <li>Publications with Data 'Y': {}</li>
             <li>Publications with Data 'N': {}</li>
-            <li>Publications with any DB: {}</li>
         </ul><br><br>
         <div id='TableContainer'>
         <table class='sortable'>
         <tr><th>Read</th><th>Title</th><th>Has Data</th><th>Mentioned DB of interest</th></tr>
-    """.format(pub_summary['total'], pub_summary['data_y'], pub_summary['data_n'], pub_summary['db_total'])
+    """.format(pub_summary['total'], pub_summary['data_y'], pub_summary['data_n'])
     )
     for pid, pub_info in pub_collection.items():
         outfile.write(
