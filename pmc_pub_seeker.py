@@ -30,7 +30,7 @@ def fit_title(title):
 def pprint(dobj):
     print(json.dumps(dobj, indent=4))
 
-main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND CREATION_DATE:[2022-08-01 TO 2022-08-31]'
+main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND CREATION_DATE:[<start> TO <end>]'
 
 words_of_interest = {'Figshare' : 'figshare*', 'Zenodo' : 'zenodo*', 'Github' : 'github*', 'Dryad': 'dryad',
                      'Gene Expression Omnibus' : 'gse*', 'Protein Data Bank' : 'PDB*', 'Proteome Xchange' : '(PXD* OR ProteomeXchange)',
