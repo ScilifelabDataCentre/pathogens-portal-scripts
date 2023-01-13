@@ -12,6 +12,7 @@ __pycache__
 #VScode settings
 
 .vscode/*
+Available data/.vscode/*
 
 # Logs
 logs
