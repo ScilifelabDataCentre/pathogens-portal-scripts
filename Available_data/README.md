@@ -25,4 +25,4 @@ This script will fill in the required information about each publication for the
 python doi_to_info.py
 ```
 
-**Note:** Make sure the filename in [line 7](https://github.com/ScilifelabDataCentre/covid-portal-scripts/Available data/blob/main/doi_to_info.py#L7) is set to mdata.json, or whatever you renamed this file to be.
+**Note:** Make sure the filename in [line 7](https://github.com/ScilifelabDataCentre/covid-portal-scripts/Available_data/blob/main/doi_to_info.py#L7) is set to mdata.json, or whatever you renamed this file to be.
