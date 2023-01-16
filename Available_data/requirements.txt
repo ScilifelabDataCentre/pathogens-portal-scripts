@@ -1,3 +1,6 @@
+# Many of the requirements files are related to formatting using Black
+# It is crucial that all of these are included for contributing to the Portal
+# At a minimum, users need to install crossrefapi to enble the scripts to function 
 black==22.12.0
 certifi==2022.12.7
 charset-normalizer==3.0.1
