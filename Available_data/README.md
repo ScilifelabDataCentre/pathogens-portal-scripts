@@ -1,18 +1,18 @@
 # Available data
-This folder contains all of the information required to update the [available data table](https://www.covid19dataportal.se/datasets/all/) on the Portal.
+This folder contains all of the information required to update the [available data table](https://www.pathogens.se/datasets/all/) on the Pathogens Portal.
 This repository contains 2 python scripts, 1 json template file and 1 requirements file. Follow the next steps in chronological order.
 
 <br>
 
-### pmc_pub_seeker.py
+### pmc_available_data.py
 
 A script that queries Europe PMC using its REST API with predefined criteria and the found publications are saved in a html file for easier manual curation. This script generates a html file named 'publication_list.html'.
 
 **Usage:**
 ```
-python pmc_pub_seeker.py
+python pmc_available_data.py
 ```
-**Note:** Make sure the variable `main_query_string` in [line 45](https://github.com/ScilifelabDataCentre/covid-portal-scripts/blob/main/pmc_pub_seeker.py#L45) is set appropriately to get relevant publications.
+**Note:** Make sure the variable `main_query_string` in [line 45](https://github.com/ScilifelabDataCentre/covid-portal-scripts/blob/main/Available_data/pmc_available_data.py#L45) is set appropriately to get relevant publications.
 
 <br>
 
@@ -25,7 +25,7 @@ The 'Has Data' column exists because articles are labeled with either 'Y' or 'N'
 ### mdata.json
 
 This file includes the basic template to be filled in manually with the filtered publications from the publication_list.html. You should list all of the data and code items in the 'available items' list for each publication, which is represented in the DOI for each item in the 'dataset'.
-Possible item types are code, repository and script. The possible data types can be seen on the [available data table](https://www.covid19dataportal.se/datasets/all/) on the Portal. One item can contain several data types.
+Possible item types are code, repository and script. The possible data types can be seen on the [available data table](https://www.covid19dataportal.se/pathogens/all/) on the Portal. One item can contain several data types.
 Example:
 ```json
 {
@@ -54,11 +54,11 @@ Example:
 
 ### doi_to_info.py
 
-This script will fill in the required information about each publication for the [available data table](https://www.covid19dataportal.se/datasets/all/). Once the mdata.json file is filled as needed, it can be renamed as required (e.g. to "dec_data.json"). It can then be passed to this script immediately. This will produce a file named 'new_data_info.json'. The contents can then be copied into the [available data file](https://github.com/ScilifelabDataCentre/covid-portal/blob/develop/data/available_datasets.json) as needed.
+This script will fill in the required information about each publication for the [available data table](https://www.pathogens.se/datasets/all/). Once the mdata.json file is filled as needed, it can be renamed as required (e.g. to "dec_data.json"). It can then be passed to this script immediately. This will produce a file named 'new_data_info.json'. The contents can then be copied into the [available data file](https://github.com/ScilifelabDataCentre/covid-portal/blob/develop/data/available_datasets.json) as needed.
 
 **Usage:**
 ```
 python doi_to_info.py
 ```
 
-**Note:** Make sure the filename in [line 7](https://github.com/ScilifelabDataCentre/covid-portal-scripts/Available_data/blob/main/doi_to_info.py#L7) is set to mdata.json, or whatever you renamed this file to be.
+**Note:** Make sure the filename in [line 7](https://github.com/ScilifelabDataCentre/covid-portal-scripts/blob/main/Available_data/doi_to_info.py#L7) is set to mdata.json, or whatever you renamed this file to be.
