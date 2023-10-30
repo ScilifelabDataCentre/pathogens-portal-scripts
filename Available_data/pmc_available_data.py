@@ -42,7 +42,7 @@ def pprint(dobj):
 
 
 # add date rangein format e.g. 2023-02-01 TO 2023-02-28 in the square brackets
-main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND CREATION_DATE:[<start> TO <end>]'
+main_query_string = '(ABSTRACT:"SARS-CoV-2" OR ABSTRACT:"COVID-19" OR ABSTRACT:"Covid-19") AND AFF:"Sweden" AND CREATION_DATE:[<start> TO <end>]'
 
 words_of_interest = {
     "Figshare": "figshare*",

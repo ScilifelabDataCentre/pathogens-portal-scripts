@@ -30,8 +30,8 @@ def fit_title(title):
 def pprint(dobj):
     print(json.dumps(dobj, indent=4))
 
-main_query_string = '(ABSTRACT:"SARS-CoV-2" OR ABSTRACT:"COVID-19" OR ABSTRACT:"Covid-19") AND AFF:"Sweden" AND CREATION_DATE:[2023-09-01 TO 2023-09-30]'
-#main_query_string = '("SARS-CoV-2" OR "COVID-19" OR "Covid-19") AND AFF:"Sweden" AND PUB_YEAR:2022'
+# add date rangein format e.g. 2023-02-01 TO 2023-02-28 in the square brackets
+main_query_string = '(ABSTRACT:"SARS-CoV-2" OR ABSTRACT:"COVID-19" OR ABSTRACT:"Covid-19") AND AFF:"Sweden" AND CREATION_DATE:[<start> TO <end>]'
 
 article_web_base = 'https://europepmc.org/article'
 
