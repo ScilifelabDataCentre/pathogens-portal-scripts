@@ -25,7 +25,7 @@ The 'Has Data' column exists because articles are labeled with either 'Y' or 'N'
 ### mdata.json
 
 This file includes the basic template to be filled in manually with the filtered publications from the publication_list.html. You should list all of the data and code items in the 'available items' list for each publication, which is represented in the DOI for each item in the 'dataset'.
-Possible item types are code, repository and script. The possible data types can be seen on the [available data table](https://www.covid19dataportal.se/pathogens/all/) on the Portal. One item can contain several data types.
+Possible item types are code, repository and script. The possible data types can be seen on the [available data table](https://www.pathogens.se/datasets/all/) on the Portal. One item can contain several data types.
 Example:
 ```json
 {
