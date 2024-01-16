@@ -10,7 +10,7 @@ A script that queries Europe PMC using its REST API with predefined criteria and
 
 **Usage:**
 ```
-python pmc_fetch_all_pubs.py.py
+python pmc_fetch_all_pubs.py
 ```
 **Note:** Make sure the variable `main_query_string` in [line 45](https://github.com/ScilifelabDataCentre/covid-portal-scripts/blob/main/All_publications/pmc_fetch_all_pubs.py#L45) is set appropriately to get relevant publications.
 
