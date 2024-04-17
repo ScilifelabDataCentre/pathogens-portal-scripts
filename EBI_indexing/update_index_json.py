@@ -6,6 +6,7 @@
 import json
 import requests
 import os
+from datetime import datetime
 from index_json_template import json_templete
 
 def get_data_from_url(url, field=None):
@@ -44,12 +45,13 @@ if __name__ == "__main__":
     index_file_url = "https://blobserver.dc.scilifelab.se/blob/pathogens_portal_EBI_index.json"
     old_index_data = get_data_from_url(index_file_url)
 
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
     if json.loads(new_index_data) == old_index_data:
-        print("No new data to update")
+        print(timestamp + " - No new data to update")
     else:
         headers = {"x-accesskey": os.getenv("ACCESS_KEY")}
         response = requests.put(index_file_url, headers=headers, data=new_index_data.encode('utf-8'))
         if response.status_code == 200:
-            print("Successfully updated EBI index file")
+            print(timestamp + " - Successfully updated EBI index file")
         else:
-            print("Failed to update EBI index file with reason - " + response.reason)
+            print(timestamp + " - Failed to update EBI index file with reason - " + response.reason)

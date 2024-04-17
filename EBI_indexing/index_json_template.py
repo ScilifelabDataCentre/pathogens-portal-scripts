@@ -377,7 +377,7 @@ json_templete = '''
         }},
         {{
           "name": "updated_date",
-          "value": "22-10-01"
+          "value": "23-03-24"
         }},
         {{
           "name": "country",
