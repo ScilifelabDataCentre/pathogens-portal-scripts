@@ -10,4 +10,4 @@ This folder contains all of the scripts used to update the [covid publications d
 
 #### EBI Indexing
 
-This folder contains all of the scripts used to update [EBI index JSON](https://blobserver.dc.scilifelab.se/blob/pathogens_portal_EBI_index.json/info) file. This will be run as a dialy cronjob in `dc-dynamic`.
+This folder contains all of the scripts used to update [EBI index JSON](https://blobserver.dc.scilifelab.se/blob/pathogens_portal_EBI_index.json/info) file. This will be run as a dialy cronjob in `dc-dynamic`. The index file is parsed by EBI (on regular basis) and the info about dataset/dashboards are put up in the main EU pathogens portal.
