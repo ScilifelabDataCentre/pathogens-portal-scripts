@@ -113,7 +113,7 @@ json_templete = '''
         }},
         {{
           "name": "updated_date",
-          "value": "24-03-05"
+          "value": "24-06-10"
         }},
         {{
           "name": "country",
@@ -818,6 +818,62 @@ json_templete = '''
         {{
           "name": "source_page",
           "value": "https://www.pathogens.se/dashboards/wastewater/influenza_quantification/"
+        }}
+      ]
+    }},
+    {{
+      "fields": [
+        {{
+          "name": "id",
+          "value": "dataset19"
+        }},
+        {{
+          "name": "name",
+          "value": "Multi-disease serology"
+        }},
+        {{
+          "name": "description",
+          "value": "A summary of the progress in developing a multi-disease serology assay, a key component of pandemic preparedness. Information about externally produced antigens is also provided."
+        }},
+        {{
+          "name": "updated_date",
+          "value": "24-08-05"
+        }},
+        {{
+          "name": "country",
+          "value": "Sweden"
+        }},
+        {{
+          "name": "data_type",
+          "value": "Serology"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "SARS-CoV-2"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Mpox"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Enterovirus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Influenza"
+        }},
+        {{
+          "name": "methods",
+          "value": "The project has produced and evaluated many antigens. This includes a wide range of different variants of the SARS-CoV-2 proteins, with a focus on the spike glycoprotein, also covering the majority of mutated variants. They have also created spike representations of SARS, MERS, and the other four human coronaviruses causing common cold (HKU1, OC43, NL63 and 229E). They have also produced influenza virus antigens representing the glycoproteins hemagglutinin and neuraminidase. Here, they have been initially focused on the variants present in the trivalent vaccine for the season 2021-2022, which includes the A(H1N1)/Wisconsin, A(H3N2)/Cambodia, and B(Victoria)/Washington strains. Furthermore, they have produced representations of Respiratory Syncytial Virus (RSV), including two surface proteins (G and F) in two different strains. Antigens representing monkeypox have also been generated and included in the current bead-based antigen collection."
+        }},
+        {{
+          "name": "data_source",
+          "value": "KTH node of Protein Production Sweden"
+        }},
+        {{
+          "name": "source_page",
+          "value": "https://www.pathogens.se/dashboards/multidisease_serology/"
         }}
       ]
     }}
