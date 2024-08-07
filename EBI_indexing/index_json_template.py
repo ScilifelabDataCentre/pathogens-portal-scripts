@@ -2,7 +2,7 @@
     This file contains JSON template used in the script update_index_json.py
 """
 
-json_templete = '''
+json_templete = """
 {{
   "name": "Swedish Pathogens Portal",
   "release": "{release}",
@@ -761,7 +761,27 @@ json_templete = '''
         }},
         {{
           "name": "type_of_pathogen",
-          "value": "Enteric viruses"
+          "value": "Enterovirus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Adenovirus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "GG2"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Astrovirus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Sapovirus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "PMMoV"
         }},
         {{
           "name": "methods",
@@ -853,6 +873,82 @@ json_templete = '''
         }},
         {{
           "name": "type_of_pathogen",
+          "value": "Common human coronaviruses"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "MERS-CoV2"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Bordetella Pertussis"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Clostridium Tetanis"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Corynebacterium Diphteria"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Measles virus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Mumps virus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Human Papillomavirus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Streptococcus Pneumoniae"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Rubella Virus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Rotavirus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Poliovirus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Cytomegalovirus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Hepatitis"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Epstein–Barr virus"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Respiratory Syncytial Virus"
+        }}, 
+        {{
+          "name": "type_of_pathogen",
+          "value": "Adenovirus"
+        }},        
+        {{
+          "name": "type_of_pathogen",
+          "value": "Parainfluenza"
+        }}, 
+        {{
+          "name": "type_of_pathogen",
+          "value": "Metapneumovirus"
+        }},   
+        {{
+          "name": "type_of_pathogen",
           "value": "Mpox"
         }},
         {{
@@ -879,4 +975,4 @@ json_templete = '''
     }}
   ]
 }}
-'''
+"""
