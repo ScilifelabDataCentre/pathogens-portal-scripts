@@ -7,7 +7,7 @@ json_templete = """
   "name": "Swedish Pathogens Portal",
   "release": "{release}",
   "release_date": "{release_date}",
-  "entry_count": 18,
+  "entry_count": 19,
   "entries": [
     {{
       "fields": [
