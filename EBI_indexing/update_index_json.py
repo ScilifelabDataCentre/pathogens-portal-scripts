@@ -47,20 +47,17 @@ if __name__ == "__main__":
         info_to_update[key + "_modified"] = get_data_from_url(url, field=field_to_get)[2:10]
     new_index_data = json_templete.format(**info_to_update)
 
-    with open("new.json", "w") as ofl:
-        ofl.write(new_index_data)
+    # Check and update blob only the data is changed
+    index_file_url = "https://blobserver.dc.scilifelab.se/blob/pathogens_portal_EBI_index.json"
+    old_index_data = get_data_from_url(index_file_url)
 
-    # # Check and update blob only the data is changed
-    # index_file_url = "https://blobserver.dc.scilifelab.se/blob/pathogens_portal_EBI_index.json"
-    # old_index_data = get_data_from_url(index_file_url)
-
-    # timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
-    # if json.loads(new_index_data) == old_index_data:
-    #     print(timestamp + " - No new data to update")
-    # else:
-    #     headers = {"x-accesskey": os.getenv("ACCESS_KEY")}
-    #     response = requests.put(index_file_url, headers=headers, data=new_index_data.encode('utf-8'))
-    #     if response.status_code == 200:
-    #         print(timestamp + " - Successfully updated EBI index file")
-    #     else:
-    #         print(timestamp + " - Failed to update EBI index file with reason - " + response.reason)
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+    if json.loads(new_index_data) == old_index_data:
+        print(timestamp + " - No new data to update")
+    else:
+        headers = {"x-accesskey": os.getenv("ACCESS_KEY")}
+        response = requests.put(index_file_url, headers=headers, data=new_index_data.encode('utf-8'))
+        if response.status_code == 200:
+            print(timestamp + " - Successfully updated EBI index file")
+        else:
+            print(timestamp + " - Failed to update EBI index file with reason - " + response.reason)
