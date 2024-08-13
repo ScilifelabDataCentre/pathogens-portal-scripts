@@ -17,15 +17,15 @@ json_templete = """
         }},
         {{
           "name": "name",
-          "value": "Antibody testing for SARS-CoV-2 at SciLifeLab, Sweden"
+          "value": "SARS-CoV-2 serology tests by the SciLifeLab Autoimmunity and Serology Profiling unit"
         }},
         {{
           "name": "description",
-          "value": "SARS-CoV-2 antibody testing conducted by the SciLifeLab Auto-immunology and Serology profiling facility. This dashboard displays the total number of tests conducted, and positive and negative test results over time"
+          "value": "The dashboard displays the SARS-CoV-2 serology tests completed over time at the at SciLifeLab Autoimmunology and Serology Profiling unit. The number of tests in total and the amount of positive/negative tests over time are shown."
         }},
         {{
           "name": "updated_date",
-          "value": "23-07-11"
+          "value": "{dataset1_modified}"
         }},
         {{
           "name": "country",
@@ -69,7 +69,7 @@ json_templete = """
         }},
         {{
           "name": "updated_date",
-          "value": "22-07-12"
+          "value": "{dataset2_modified}"
         }},
         {{
           "name": "country",
@@ -113,7 +113,7 @@ json_templete = """
         }},
         {{
           "name": "updated_date",
-          "value": "24-06-10"
+          "value": "{dataset3_modified}"
         }},
         {{
           "name": "country",
@@ -245,7 +245,7 @@ json_templete = """
         }},
         {{
           "name": "updated_date",
-          "value": "24-02-16"
+          "value": "{dataset6_modified}"
         }},
         {{
           "name": "country",
@@ -509,7 +509,7 @@ json_templete = """
         }},
         {{
           "name": "updated_date",
-          "value": "23-06-02"
+          "value": "{dataset12_modified}"
         }},
         {{
           "name": "country",
