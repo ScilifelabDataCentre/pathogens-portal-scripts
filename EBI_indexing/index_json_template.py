@@ -2,7 +2,7 @@
     This file contains JSON template used in the script update_index_json.py
 """
 
-json_templete = """
+json_template = """
 {{
   "name": "Swedish Pathogens Portal",
   "release": "{release}",
@@ -21,7 +21,7 @@ json_templete = """
         }},
         {{
           "name": "description",
-          "value": "The dashboard displays the SARS-CoV-2 serology tests completed over time at the at SciLifeLab Autoimmunology and Serology Profiling unit. The number of tests in total and the amount of positive/negative tests over time are shown."
+          "value": "The dashboard displays the SARS-CoV-2 serology tests completed over time at the SciLifeLab Autoimmunology and Serology Profiling unit. The number of tests in total and the amount of positive/negative tests over time are shown."
         }},
         {{
           "name": "updated_date",
