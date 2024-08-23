@@ -37,14 +37,24 @@ if __name__ == "__main__":
         "dataset12" : "https://blobserver.dc.scilifelab.se/blob/stockholm_wastewater_method_Sep_2021.xlsx/info.json",
         "dataset14" : "https://blobserver.dc.scilifelab.se/blob/SLU_wastewater_data.csv/info.json",
         "dataset16" : "https://blobserver.dc.scilifelab.se/blob/wastewater_data_gu_allviruses.xlsx/info.json",
-        "dataset18": "https://blobserver.dc.scilifelab.se/blob/SLU_wastewater_data.csv/info.json"
+        "dataset18": "https://blobserver.dc.scilifelab.se/blob/SLU_wastewater_data.csv/info.json",
+        "dataset19" : ["https://blobserver.dc.scilifelab.se/blob/KTH-produced-antigens.xlsx/info.json",
+                       "https://blobserver.dc.scilifelab.se/blob/External-PLP-proteinlist.xlsx/info.json"]
     }
 
     # Iterate thorugh the above dict and get recent modifed dates. For all files
     # in blobserver, the info.json should have modified field in speciifc format
     for key, url in info_urls.items():
+        # for dataset3 (publication data), the key is different
         field_to_get = "timestamp" if key == "dataset3" else "modified"
-        info_to_update[key + "_modified"] = get_data_from_url(url, field=field_to_get)[2:10]
+        # for dataset19 (multi-disease serology), we have two file to check the data
+        if key == "dataset19":
+            u_dates = []
+            for u in url:
+                u_dates.append(datetime.strptime(get_data_from_url(u, field=field_to_get)[2:10], "%y-%m-%d"))
+            info_to_update[key + "_modified"] = max(u_dates).strftime("%y-%m-%d")
+        else:
+            info_to_update[key + "_modified"] = get_data_from_url(url, field=field_to_get)[2:10]
     new_index_data = json_templete.format(**info_to_update)
 
     # Check and update blob only the data is changed

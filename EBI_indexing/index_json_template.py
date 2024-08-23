@@ -857,7 +857,7 @@ json_templete = """
         }},
         {{
           "name": "updated_date",
-          "value": "24-08-05"
+          "value": "{dataset19_modified}"
         }},
         {{
           "name": "country",
