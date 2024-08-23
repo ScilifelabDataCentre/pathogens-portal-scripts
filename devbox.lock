@@ -1,0 +1,147 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "python310Packages.pip@latest": {
+      "last_modified": "2023-12-13T22:54:10Z",
+      "plugin_version": "0.0.2",
+      "resolved": "github:NixOS/nixpkgs/fd04bea4cbf76f86f244b9e2549fca066db8ddff#python310Packages.pip",
+      "source": "devbox-search",
+      "version": "23.2.1",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/vjyrxbxqsadvr9g6mzig6y406dhwcrqi-python3.10-pip-23.2.1",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/2ra46imgas5srgxx8mgs424akh5j1msv-python3.10-pip-23.2.1-man",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/xjj6xjh21k08rkyg6hnkbyrygqhqgn8y-python3.10-pip-23.2.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/vjyrxbxqsadvr9g6mzig6y406dhwcrqi-python3.10-pip-23.2.1"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/j8pxwv7vyjm8z2fqglijjvabbkmxbv9r-python3.10-pip-23.2.1",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/bcfliw00z123ddyi8hsfxvfn2npdcpdq-python3.10-pip-23.2.1-man",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/2326b2sr9p2z9bsghd2pzs346g2qjn7f-python3.10-pip-23.2.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/j8pxwv7vyjm8z2fqglijjvabbkmxbv9r-python3.10-pip-23.2.1"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/7lyvqf8wl47wzgsqmlcz39ycmwxyg9zx-python3.10-pip-23.2.1",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/0j02s5hbsdhfxvvay5dm9j68nhalm39v-python3.10-pip-23.2.1-man",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/8dvqh9ai83lqaaixs3bhmf1n4jxgp4v7-python3.10-pip-23.2.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/7lyvqf8wl47wzgsqmlcz39ycmwxyg9zx-python3.10-pip-23.2.1"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gdhvfi5zaqzpa5l3kk0spmv71r549slf-python3.10-pip-23.2.1",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/p37y2fhm6l3nd624jmr2r680wf4p0544-python3.10-pip-23.2.1-man",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/r4qj7psryk532rkh0srhn25ygv8yk541-python3.10-pip-23.2.1-dist"
+            }
+          ],
+          "store_path": "/nix/store/gdhvfi5zaqzpa5l3kk0spmv71r549slf-python3.10-pip-23.2.1"
+        }
+      }
+    },
+    "python@3.10": {
+      "last_modified": "2024-08-14T11:41:26Z",
+      "plugin_version": "0.0.3",
+      "resolved": "github:NixOS/nixpkgs/0cb2fd7c59fed0cd82ef858cbcbdb552b9a33465#python310",
+      "source": "devbox-search",
+      "version": "3.10.14",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/1l73sya48bffkjv10rf7fcn3nvnz1zvl-python3-3.10.14",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/1l73sya48bffkjv10rf7fcn3nvnz1zvl-python3-3.10.14"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/fa9jr4mkdnmn0m5f41yzwx8qba7mmzsz-python3-3.10.14",
+              "default": true
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/zccb88kbi1scvs2rqkza6b81j3vw1sia-python3-3.10.14-debug"
+            }
+          ],
+          "store_path": "/nix/store/fa9jr4mkdnmn0m5f41yzwx8qba7mmzsz-python3-3.10.14"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ys3fwrmrh00gw5nyr27a693hz4593sn2-python3-3.10.14",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ys3fwrmrh00gw5nyr27a693hz4593sn2-python3-3.10.14"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/25j36x4pjsn1sr3597gppa7sdn2c2v0n-python3-3.10.14",
+              "default": true
+            },
+            {
+              "name": "debug",
+              "path": "/nix/store/k5p6bi63nzhydp2srm86kzsky8arwyfm-python3-3.10.14-debug"
+            }
+          ],
+          "store_path": "/nix/store/25j36x4pjsn1sr3597gppa7sdn2c2v0n-python3-3.10.14"
+        }
+      }
+    }
+  }
+}
