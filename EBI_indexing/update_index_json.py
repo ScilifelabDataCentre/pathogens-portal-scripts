@@ -43,10 +43,11 @@ if __name__ == "__main__":
         "dataset16": "https://blobserver.dc.scilifelab.se/blob/wastewater_data_gu_allviruses.xlsx/info.json",
         "dataset18": "https://blobserver.dc.scilifelab.se/blob/SLU_wastewater_data.csv/info.json",
         "dataset19": ["https://blobserver.dc.scilifelab.se/blob/KTH-produced-antigens.xlsx/info.json",
-                      "https://blobserver.dc.scilifelab.se/blob/External-PLP-proteinlist.xlsx/info.json"]
+                      "https://blobserver.dc.scilifelab.se/blob/External-PLP-proteinlist.xlsx/info.json"],
+        "dataset20": "https://api.github.com/repos/MurrellGroup/lineages/commits?path=plots&page=1&per_page=1"
     }
 
-    # Iterate thorugh the above dict and get recent modifed dates. For all files
+    # Iterate through the above dict and get recent modified dates. For all files
     # in blobserver, the info.json should have modified field in specific format
     for key, url in info_urls.items():
 
@@ -60,13 +61,19 @@ if __name__ == "__main__":
                 u_dates.append(datetime.strptime(get_data_from_url(u, field=field_to_get)[2:10], "%y-%m-%d"))
             info_to_update[key + "_modified"] = max(u_dates).strftime("%y-%m-%d")
 
+        # for dataset20 (GitHub commits data), fetch the commit date
+        elif key == "dataset20":
+            commits = get_data_from_url(url)
+            commit_date = commits[0]['commit']['committer']['date'][:10]
+            info_to_update[key + "_modified"] = commit_date
+
         # for other datasets
         else:
             info_to_update[key + "_modified"] = get_data_from_url(url, field=field_to_get)[2:10]
 
     new_index_data = json_template.format(**info_to_update)
 
-    # Check and update blob only the data is changed
+    # Check and update blob only if the data has changed
     index_file_url = "https://blobserver.dc.scilifelab.se/blob/pathogens_portal_EBI_index.json"
     old_index_data = get_data_from_url(index_file_url)
 
