@@ -2,12 +2,12 @@
     This file contains JSON template used in the script update_index_json.py
 """
 
-json_templete = """
+json_template = """
 {{
   "name": "Swedish Pathogens Portal",
   "release": "{release}",
   "release_date": "{release_date}",
-  "entry_count": 19,
+  "entry_count": 20,
   "entries": [
     {{
       "fields": [
@@ -970,6 +970,50 @@ json_templete = """
         {{
           "name": "source_page",
           "value": "https://www.pathogens.se/dashboards/multidisease_serology/"
+        }}
+      ]
+    }},
+    {{
+      "fields": [
+        {{
+          "name": "id",
+          "value": "dataset20"
+        }},
+        {{
+          "name": "name",
+          "value": "SARS-CoV-2 variant competition"
+        }},
+        {{
+          "name": "description",
+          "value": "Estimates of SARS-CoV-2 variant frequencies and growth rate advantages from global SARS-CoV-2 genotype sequencing data"
+        }},
+        {{
+          "name": "updated_date",
+          "value": "{dataset20_modified}"
+        }},
+        {{
+          "name": "country",
+          "value": "Sweden"
+        }},
+        {{
+          "name": "data_type",
+          "value": "Variant_competition"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "SARS-CoV-2"
+        }},
+        {{
+          "name": "methods",
+          "value": "Lineage dynamics are modelled using a Bayesian multinomial logistic regression over lineage counts. The latest global SARS-CoV-2 dataset (obtained via bulk download) is filtered to include only sequences with collection dates within the last 100 days. Lineage assignment is performed using, retaining sequences with a “good” overall QC status, and >90% coverage. Daily lineage counts are aggregated by region (including only countries with sufficient recent sequencing volumes), with low-frequency sub-lineages (too rare to model) merged into their most recent ancestors."
+        }},
+        {{
+          "name": "data_source",
+          "value": "Karolinska Institutet"
+        }},
+        {{
+          "name": "source_page",
+          "value": "https://www.pathogens.se/dashboards/lineage_competition/"
         }}
       ]
     }}
