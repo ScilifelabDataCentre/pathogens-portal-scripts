@@ -64,7 +64,7 @@ if __name__ == "__main__":
         # for dataset20 (GitHub commits data), fetch the commit date
         elif key == "dataset20":
             commits = get_data_from_url(url)
-            commit_date = commits[0]['commit']['committer']['date'][:10]
+            commit_date = commits[0]['commit']['committer']['date'][2:10]
             info_to_update[key + "_modified"] = commit_date
 
         # for other datasets
