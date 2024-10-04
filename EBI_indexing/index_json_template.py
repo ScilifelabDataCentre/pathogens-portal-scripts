@@ -7,7 +7,7 @@ json_template = """
   "name": "Swedish Pathogens Portal",
   "release": "{release}",
   "release_date": "{release_date}",
-  "entry_count": 20,
+  "entry_count": 23,
   "entries": [
     {{
       "fields": [
@@ -445,7 +445,7 @@ json_template = """
         }},
         {{
           "name": "source_page",
-          "value": "https://www.pathogens.se/dashboards/wastewater/covid_quantification/covid_quant_gu/"
+          "value": "https://www.pathogens.se/dashboards/covid_quantification/covid_quant_gu/"
         }}
       ]
     }},
@@ -489,7 +489,7 @@ json_template = """
         }},
         {{
           "name": "source_page",
-          "value": "https://www.pathogens.se/dashboards/wastewater/covid_quantification/historic_covid_gu/"
+          "value": "https://www.pathogens.se/dashboards/covid_quantification/historic_covid_gu/"
         }}
       ]
     }},
@@ -533,7 +533,7 @@ json_template = """
         }},
         {{
           "name": "source_page",
-          "value": "https://www.pathogens.se/dashboards/wastewater/covid_quantification/covid_quant_kth/"
+          "value": "https://www.pathogens.se/dashboards/covid_quantification/covid_quant_kth/"
         }}
       ]
     }},
@@ -577,7 +577,7 @@ json_template = """
         }},
         {{
           "name": "source_page",
-          "value": "https://www.pathogens.se/dashboards/wastewater/covid_quantification/historic_stockholm/"
+          "value": "https://www.pathogens.se/dashboards/covid_quantification/historic_stockholm/"
         }}
       ]
     }},
@@ -593,11 +593,55 @@ json_template = """
         }},
         {{
           "name": "description",
-          "value": "Quantification of the levels of SARS-CoV-2 in wastewater from multiple sites, including Stockholm, Malmö, Gothenburg, Uppsala, Västerås, Örebro, Umeå, and many others, by the SEEC-SLU node"
+          "value": "Explore SARS-CoV-2 levels in wastewater across Sweden. Weekly data from SLU-SEEC tracks COVID-19 trends, covering 43% of the population, and aids in outbreak prediction."
         }},
         {{
           "name": "updated_date",
           "value": "{dataset14_modified}"
+        }},
+        {{
+          "name": "country",
+          "value": "Sweden"
+        }},
+        {{
+          "name": "data_type",
+          "value": "Wasterwater"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "SARS-CoV-2"
+        }},
+        {{
+          "name": "methods",
+          "value": "For most cities represented on this page, raw, untreated wastewater samples that are representative of a single day are collected by flow compensated samplers at the wastewater treatment plants (WWTP). Uppsala is the exception, with all measurements since week 16 of 2021 instead representing 1 week. In Uppsala, samples are collected daily, and then combined flow-proportionally into one composite weekly sample for the purpose of analyses. The freshly collected samples are processed according to standard methodologies. For samples collected up to and including week 18 of 2021, viral particles were concentrated using the electronegative filtration method (Ahmed et al., 2020). Since week 19 of 2021, the viral genomic material has instead been concentrated and extracted by the direct capture method, using the Maxwell RSC Enviro TNA kit (Promega). Absolute quantification of the copy numbers of the SARS-CoV-2 genome is performed using One-Step RT-qPCR. Until week 31 of 2023 the quantification of the viral genomes was performed using the SARS-CoV-2 specific N1 assay from the Centers for Disease Control and Prevention (CDC). From week 32 of 2023 quantification is performed using the Flu SC2 Multiplex Assay (CDC). To correct for variations in population size and wastewater flow, the pepper mild mottle virus (PMMoV) is quantified using a modified version of the assay of Zhang et al. (2006). PMMoV is an abundant RNA virus in human faeces and serves as an estimator of human faecal content (Symonds et al., 2019). For more details about the sample processing method, and the evaluation of the use of the PMMoV normalisation method for Swedish wastewater, please refer to the corresponding publication: Isaksson et al. (2022)."
+        }},
+        {{
+          "name": "data_source",
+          "value": "Swedish University of Agricultural Sciences (SLU)"
+        }},
+        {{
+          "name": "source_page",
+          "value": "https://www.pathogens.se/dashboards/covid_quantification/"
+        }}
+      ]
+    }},
+    {{
+      "fields": [
+        {{
+          "name": "id",
+          "value": "dataset15"
+        }},
+        {{
+          "name": "name",
+          "value": "Historic SARS-CoV-2 quantification in wastewater (SEEC-SLU)"
+        }},
+        {{
+          "name": "description",
+          "value": "Quantification of the levels of SARS-CoV-2 in wastewater from multiple sites, including Stockholm, Malmö, Gothenburg, Uppsala, Västerås, Örebro, Umeå, and many others, by the SEEC-SLU node"
+        }},
+        {{
+          "name": "updated_date",
+          "value": "24-09-30"
         }},
         {{
           "name": "country",
@@ -621,7 +665,7 @@ json_template = """
         }},
         {{
           "name": "source_page",
-          "value": "https://www.pathogens.se/dashboards/wastewater/covid_quantification/covid_quant_slu/"
+          "value": "https://www.pathogens.se/dashboards/covid_quantification/historic_covid_slu/"
         }}
       ]
     }},
@@ -629,7 +673,7 @@ json_template = """
       "fields": [
         {{
           "name": "id",
-          "value": "dataset15"
+          "value": "dataset16"
         }},
         {{
           "name": "name",
@@ -665,7 +709,7 @@ json_template = """
         }},
         {{
           "name": "source_page",
-          "value": "https://www.pathogens.se/dashboards/wastewater/covid_quantification/historic_orebro_umea/"
+          "value": "https://www.pathogens.se/dashboards/covid_quantification/historic_orebro_umea/"
         }}
       ]
     }},
@@ -673,7 +717,7 @@ json_template = """
       "fields": [
         {{
           "name": "id",
-          "value": "dataset16"
+          "value": "dataset17"
         }},
         {{
           "name": "name",
@@ -685,7 +729,7 @@ json_template = """
         }},
         {{
           "name": "updated_date",
-          "value": "{dataset16_modified}"
+          "value": "{dataset17_modified}"
         }},
         {{
           "name": "country",
@@ -729,7 +773,7 @@ json_template = """
         }},
         {{
           "name": "source_page",
-          "value": "https://www.pathogens.se/dashboards/wastewater/enteric_quantification/"
+          "value": "https://www.pathogens.se/dashboards/enteric_quantification/"
         }}
       ]
     }},
@@ -737,7 +781,7 @@ json_template = """
       "fields": [
         {{
           "name": "id",
-          "value": "dataset17"
+          "value": "dataset18"
         }},
         {{
           "name": "name",
@@ -793,7 +837,7 @@ json_template = """
         }},
         {{
           "name": "source_page",
-          "value": "https://www.pathogens.se/dashboards/wastewater/enteric_quantification/historic_enteric_gu/"
+          "value": "https://www.pathogens.se/dashboards/enteric_quantification/historic_enteric_gu/"
         }}
       ]
     }},
@@ -801,7 +845,7 @@ json_template = """
       "fields": [
         {{
           "name": "id",
-          "value": "dataset18"
+          "value": "dataset19"
         }},
         {{
           "name": "name",
@@ -809,11 +853,55 @@ json_template = """
         }},
         {{
           "name": "description",
+          "value": "Explore Influenza A and B virus levels in wastewater across Sweden. Weekly data from SLU-SEEC tracks Influenza trends, covering 43% of the Swedish population, and aids in predicting potential outbreaks."
+        }},
+        {{
+          "name": "updated_date",
+          "value": "{dataset19_modified}"
+        }},
+        {{
+          "name": "country",
+          "value": "Sweden"
+        }},
+        {{
+          "name": "data_type",
+          "value": "Wastewater"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Influenza"
+        }},
+        {{
+          "name": "methods",
+          "value": "For most cities represented on this page, raw, untreated wastewater samples that are representative of a single day are collected by flow compensated samplers at the wastewater treatment plants (WWTP). Uppsala is the exception, where samples are collected daily, and then combined flow-proportionally into one composite weekly sample for the purpose of analyses. The viral genomic material from the freshly collected samples is extracted by the direct capture method, using the Maxwell RSC Enviro TNA kit (Promega). Absolute quantification of the copy numbers of the genome of influenza A and B viruses is performed by One-Step RT-qPCR using the Flu SC2 Multiplex Assay from the Centers for Disease Control and Prevention (CDC). To correct for variations in population size and wastewater flow, pepper mild mottle virus (PMMoV) is quantified using a modified version of the assay of Zhang et al. (2006). PMMoV is an abundant RNA virus in human faeces and serves as an estimator of human faecal content (Symonds et al., 2019)."
+        }},
+        {{
+          "name": "data_source",
+          "value": "Swedish University of Agricultural Sciences (SLU)"
+        }},
+        {{
+          "name": "source_page",
+          "value": "https://www.pathogens.se/dashboards/influenza_quantification/"
+        }}
+      ]
+    }},
+    {{
+      "fields": [
+        {{
+          "name": "id",
+          "value": "dataset20"
+        }},
+        {{
+          "name": "name",
+          "value": "Historic Influenza quantification (SLU)"
+        }},
+        {{
+          "name": "description",
           "value": "Quantification of the levels of influenza (InfA and InfB) in wastewater from multiple sites, including Stockholm, Malmö, Gothenburg, Uppsala, Västerås, Örebro, Umeå, and many others, by the SEEC-SLU node"
         }},
         {{
           "name": "updated_date",
-          "value": "{dataset18_modified}"
+          "value": "24-09-30"
         }},
         {{
           "name": "country",
@@ -837,7 +925,7 @@ json_template = """
         }},
         {{
           "name": "source_page",
-          "value": "https://www.pathogens.se/dashboards/wastewater/influenza_quantification/"
+          "value": "https://www.pathogens.se/dashboards/influenza_quantification/historic_influenza_slu/"
         }}
       ]
     }},
@@ -845,7 +933,51 @@ json_template = """
       "fields": [
         {{
           "name": "id",
-          "value": "dataset19"
+          "value": "dataset21"
+        }},
+        {{
+          "name": "name",
+          "value": "RSV quantification (SLU)"
+        }},
+        {{
+          "name": "description",
+          "value": "Explore Respiratory Syncytial Virus (RSV) levels in wastewater across Sweden. Weekly data from SLU-SEEC tracks RSV trends, covering a significant portion of the population, and assists in predicting potential outbreaks."
+        }},
+        {{
+          "name": "updated_date",
+          "value": "{dataset21_modified}"
+        }},
+        {{
+          "name": "country",
+          "value": "Sweden"
+        }},
+        {{
+          "name": "data_type",
+          "value": "Wastewater"
+        }},
+        {{
+          "name": "type_of_pathogen",
+          "value": "Respiratory Syncytial Virus"
+        }},
+        {{
+          "name": "methods",
+          "value": "For most cities represented on this page, raw, untreated wastewater samples that are representative of a single day are collected by flow compensated samplers at the wastewater treatment plants (WWTP). Uppsala is the exception, where samples are collected daily, and then combined flow-proportionally into one composite weekly sample for the purpose of analyses. The viral genomic material from the freshly collected samples is extracted by the direct capture method, using the Maxwell RSC Enviro TNA kit (Promega). Absolute quantification of the copy numbers of the genome of RSV virus is performed by One-Step RT-qPCR using the assay of Hughes et al. (2022). To correct for variations in population size and wastewater flow, pepper mild mottle virus (PMMoV) is quantified using a modified version of the assay of Zhang et al. (2006). PMMoV is an abundant RNA virus in human faeces and serves as an estimator of human faecal content (Symonds et al., 2019)."
+        }},
+        {{
+          "name": "data_source",
+          "value": "Swedish University of Agricultural Sciences (SLU)"
+        }},
+        {{
+          "name": "source_page",
+          "value": "https://www.pathogens.se/dashboards/influenza_quantification/"
+        }}
+      ]
+    }},
+    {{
+      "fields": [
+        {{
+          "name": "id",
+          "value": "dataset22"
         }},
         {{
           "name": "name",
@@ -857,7 +989,7 @@ json_template = """
         }},
         {{
           "name": "updated_date",
-          "value": "{dataset19_modified}"
+          "value": "{dataset22_modified}"
         }},
         {{
           "name": "country",
@@ -977,7 +1109,7 @@ json_template = """
       "fields": [
         {{
           "name": "id",
-          "value": "dataset20"
+          "value": "dataset23"
         }},
         {{
           "name": "name",
@@ -989,7 +1121,7 @@ json_template = """
         }},
         {{
           "name": "updated_date",
-          "value": "{dataset20_modified}"
+          "value": "{dataset23_modified}"
         }},
         {{
           "name": "country",
