@@ -969,7 +969,7 @@ json_template = """
         }},
         {{
           "name": "source_page",
-          "value": "https://www.pathogens.se/dashboards/influenza_quantification/"
+          "value": "https://www.pathogens.se/dashboards/rsv_quantification/"
         }}
       ]
     }},
