@@ -36,7 +36,7 @@ if __name__ == "__main__":
         "dataset3": "https://raw.githubusercontent.com/ScilifelabDataCentre/pathogens-portal/main/data/publications.json",
         "dataset6": "https://blobserver.dc.scilifelab.se/blob/accompdiag_table_swe.json/info.json",
         "dataset7": "https://blobserver.dc.scilifelab.se/blob/swedishpop_subplot_button.json/info.json",
-        "dataset8": "https://blobserver.dc.scilifelab.se/blob/lineage_four_recent.json/info.json",
+        "dataset8": "https://blobserver.dc.scilifelab.se/blob/lineage-cleaned-data.csv/info.json",
         "dataset10": "https://blobserver.dc.scilifelab.se/blob/wastewater_data_gu_allviruses.xlsx/info.json",
         "dataset12": "https://blobserver.dc.scilifelab.se/blob/stockholm_wastewater_method_Sep_2021.xlsx/info.json",
         "dataset14": "https://blobserver.dc.scilifelab.se/blob/SLU_wastewater_data.csv/info.json",
