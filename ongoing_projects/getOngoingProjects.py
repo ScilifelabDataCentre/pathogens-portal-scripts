@@ -3,10 +3,22 @@ import datetime
 import json
 import time
 import logging
+import os  # Import the os module
+from dotenv import load_dotenv  # Import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # --- Constants ---
 API_URL = "https://swecris-api.vr.se/v1/projects"
-AUTH_TOKEN = "VRSwecrisAPI2024-1" # TODO: This is a testing token provided publically by VR. We need to get a new token for our own use.
+# Get the token from environment variable
+# To run locally, create a .env file in the project root
+# and add the line: SWECRIS_API_TOKEN="your_actual_token"
+AUTH_TOKEN = os.environ.get("SWECRIS_API_TOKEN")
+# Add a check to ensure the token was loaded
+if not AUTH_TOKEN:
+    raise ValueError("Error: SWECRIS_API_TOKEN environment variable not set or .env file not found.")
+
 PAGE_SIZE = 100
 TODAY = datetime.date.today()
 UNKNOWN = "Unknown"
