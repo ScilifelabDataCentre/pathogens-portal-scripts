@@ -11,3 +11,23 @@ This folder contains all of the scripts used to update the [covid publications d
 #### EBI Indexing
 
 This folder contains all of the scripts used to update [EBI index JSON](https://blobserver.dc.scilifelab.se/blob/pathogens_portal_EBI_index.json/info) file. This will be run as a dialy cronjob in `dc-dynamic`. The index file is parsed by EBI (on regular basis) and the info about dataset/dashboards are put up in the main EU pathogens portal.
+
+#### Ongoing Projects
+
+This directory contains scripts and data related to fetching and processing information about ongoing research projects funded by the Swedish Research Council (Vetenskapsrådet).
+
+##### `get_ongoing_projects.py`
+
+This script fetches project data from the SweCRIS API (`https://swecris-api.vr.se/v1/projects`). It performs the following steps:
+
+1.  **Loads API Token:** Reads the `SWECRIS_API_TOKEN` from environment variables. For local development, create a `.env` file in the project root and add the token like this:
+    ```
+    SWECRIS_API_TOKEN="your_actual_token"
+    ```
+2.  **Fetches Projects:** Retrieves all project data from the API.
+3.  **Filters Ongoing Projects:** Filters the projects to include only those whose start and end dates encompass the current date.
+4.  **Matches Topics:** Identifies projects related to specific scientific topics (e.g., Antibiotic resistance, COVID-19, Influenza) based on keywords found in the project title or abstract.
+5.  **Formats Output:** Structures the relevant information for each matched project (funder, title, funding amount, principal investigator, dates, URL).
+6.  **Saves Data:** Saves the filtered and formatted project data into `Ongoing_projects/ongoing_research_projects.json` JSON file.
+
+
