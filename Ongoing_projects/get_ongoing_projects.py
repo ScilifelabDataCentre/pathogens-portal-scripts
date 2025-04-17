@@ -5,6 +5,7 @@ import time
 import logging
 import os  # Import the os module
 from dotenv import load_dotenv  # Import load_dotenv
+import re # Add this at the top
 
 # Load environment variables from .env file
 load_dotenv()
@@ -79,7 +80,11 @@ def match_topics(project):
 
     matched_topics = []
     for topic, keywords in TOPIC_KEYWORDS.items():
-        if any(keyword.lower() in text for keyword in keywords):
+        # Create a regex pattern for the topic's keywords, matching whole words
+        # We escape potential regex special characters in keywords just in case
+        # and join them with '|' (OR), surrounded by word boundaries '\b'
+        pattern = r"\b(" + "|".join(re.escape(kw.lower()) for kw in keywords) + r")\b"
+        if re.search(pattern, text):
             matched_topics.append(topic)
     return matched_topics
 
@@ -139,7 +144,7 @@ if __name__ == "__main__":
     }
 
     # Save to JSON
-    output_file = "Ongoing_projects/data/ongoing_research_projects.json"
+    output_file = "Ongoing_projects/ongoing_research_projects.json"
     with open(output_file, "w") as f:
         json.dump(output_data, f, indent=2)
 

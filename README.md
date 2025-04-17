@@ -16,7 +16,7 @@ This folder contains all of the scripts used to update [EBI index JSON](https://
 
 This directory contains scripts and data related to fetching and processing information about ongoing research projects funded by the Swedish Research Council (Vetenskapsrådet).
 
-##### `getOngoingProjects.py`
+##### `get_ongoing_projects.py`
 
 This script fetches project data from the SweCRIS API (`https://swecris-api.vr.se/v1/projects`). It performs the following steps:
 
@@ -28,6 +28,6 @@ This script fetches project data from the SweCRIS API (`https://swecris-api.vr.s
 3.  **Filters Ongoing Projects:** Filters the projects to include only those whose start and end dates encompass the current date.
 4.  **Matches Topics:** Identifies projects related to specific scientific topics (e.g., Antibiotic resistance, COVID-19, Influenza) based on keywords found in the project title or abstract.
 5.  **Formats Output:** Structures the relevant information for each matched project (funder, title, funding amount, principal investigator, dates, URL).
-6.  **Saves Data:** Saves the filtered and formatted project data into `Ongoing_projects/data/ongoing_research_projects.json` JSON file.
+6.  **Saves Data:** Saves the filtered and formatted project data into `Ongoing_projects/ongoing_research_projects.json` JSON file.
 
 
