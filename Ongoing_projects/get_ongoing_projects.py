@@ -144,7 +144,7 @@ if __name__ == "__main__":
     }
 
     # Save to JSON
-    output_file = "Ongoing_projects/ongoing_research_projects.json"
+    output_file = "ongoing_research_projects.json"
     with open(output_file, "w") as f:
         json.dump(output_data, f, indent=2)
 
