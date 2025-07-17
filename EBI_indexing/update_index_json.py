@@ -33,7 +33,7 @@ if __name__ == "__main__":
     info_urls = {
         "dataset1": "https://blobserver.dc.scilifelab.se/blob/Serology-testing-statistics-dataset-20202021.csv/info.json",
         "dataset2": "https://blobserver.dc.scilifelab.se/blob/CSSS_estimates_mostrecent.csv/info.json",
-        "dataset3": "https://raw.githubusercontent.com/ScilifelabDataCentre/pathogens-portal/main/data/publications.json",
+        "dataset3": "https://raw.githubusercontent.com/ScilifelabDataCentre/pathogens-portal/develop/data/publications.json",
         "dataset6": "https://blobserver.dc.scilifelab.se/blob/accompdiag_table_swe.json/info.json",
         "dataset7": "https://blobserver.dc.scilifelab.se/blob/swedishpop_subplot_button.json/info.json",
         "dataset8": "https://blobserver.dc.scilifelab.se/blob/lineage-cleaned-data.csv/info.json",
