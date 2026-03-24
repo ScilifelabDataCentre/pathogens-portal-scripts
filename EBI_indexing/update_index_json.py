@@ -39,10 +39,10 @@ if __name__ == "__main__":
         "dataset8": "https://blobserver.dc.scilifelab.se/blob/lineage-cleaned-data.csv/info.json",
         "dataset10": "https://blobserver.dc.scilifelab.se/blob/wastewater_data_gu_allviruses.xlsx/info.json",
         "dataset12": "https://blobserver.dc.scilifelab.se/blob/stockholm_wastewater_method_Sep_2021.xlsx/info.json",
-        "dataset14": "https://blobserver.dc.scilifelab.se/blob/SLU_wastewater_data.csv/info.json",
+        "dataset14": "https://blobserver.dc.scilifelab.se/blob/new_slu_ww_data.csv/info.json",
         "dataset17": "https://blobserver.dc.scilifelab.se/blob/wastewater_data_gu_allviruses.xlsx/info.json",
-        "dataset19": "https://blobserver.dc.scilifelab.se/blob/SLU_wastewater_data.csv/info.json",
-        "dataset21": "https://blobserver.dc.scilifelab.se/blob/SLU_wastewater_data.csv/info.json",
+        "dataset19": "https://blobserver.dc.scilifelab.se/blob/new_slu_ww_data.csv/info.json",
+        "dataset21": "https://blobserver.dc.scilifelab.se/blob/new_slu_ww_data.csv/info.json",
         "dataset22": ["https://blobserver.dc.scilifelab.se/blob/KTH-produced-antigens.xlsx/info.json",
                       "https://blobserver.dc.scilifelab.se/blob/External-PLP-proteinlist.xlsx/info.json"],
         "dataset23": "https://api.github.com/repos/MurrellGroup/lineages/commits?path=plots&page=1&per_page=1"
